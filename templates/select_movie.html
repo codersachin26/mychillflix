@@ -1,0 +1,143 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{%block style%}
+
+<link rel="stylesheet" href="{% static 'css\movie_css.css'%}">
+  {% endblock%}
+
+
+{% block body%}
+
+<div class="mcontainer">
+
+  <div class="left-container">
+
+    <h1>Related Movies</h1>
+
+
+
+  	<ul>
+
+    {% for m_relate in m_related %}
+
+        <li>
+        	<a href="{% url 'movie_info' m_relate.id %}">
+
+
+
+     <div class="mmovie-box">
+      <img src="/media/{{m_relate.M_img}}">
+
+
+       <span >{{m_relate.M_name}}</span><br>
+
+        <span>{{m_relate.M_languages}}</span><br>
+         <span>{{m_relate.M_quality}}</span>
+
+     </div>
+     </a>
+      </li>
+
+      {% endfor %}
+
+
+
+
+
+   </ul>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <div class="right-container">
+
+    <img src="/media/{{movie.M_pics}}" alt="">
+
+
+    <div class="watch-btn">
+    <a href="movieplay/{{movie.id}}">  <button type="button" name="button">Watch</button> </a>
+      {% for i in Q%}
+     <a href="sendfile/{{movie.id}}/_{{i}}"> <button type="button" name="button">{{i}}</button></a>
+
+      {% endfor %}
+    </div>
+
+    <div class="movie-info">
+
+
+    <h1>{{m.M_name}}</h1><h6>{{movie.M_time_length}} | {{movie.M_Categories}}</h6>
+    <h3>Audio: {{m.M_languages}}</h3>
+    <h3>Quality: {{m.M_quality}}</h3>
+    <h3>Creator: {{movie.M_creator}}</h3>
+
+      <h1>Storyline</h1>
+      <span >{{movie.M_story}}</span>
+       <br>
+       <h1>Screenshots</h1><br>
+
+       <img src="/media/{{i.screenshot1}}" alt=""><br>
+       <img src="/media/{{i.screenshot2}}" alt=""><br>
+       <img src="/media/{{i.screenshot3}}" alt=""><br>
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="cmt">
+
+  <h1>COMMENTS</h1><br>
+  <form action="usercmt" method="POST">
+    {% csrf_token %}
+  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="usermsg"></textarea><br>
+  <input type="text" placeholder="UserName" name="username"><br>
+  <input  type="hidden" name="id" value="{{movie.id}}">
+  <input type="email" placeholder="Email" name="email"><br>
+  <button type="submit">Add Comment</button>
+</form>
+
+  <hr>
+  <hr>
+
+
+ {% for i in usercmts%}
+
+  <div class="usercmt">
+
+    <h1>{{i.U_name}}</h1>
+    <h7>{{i.cmt_date}}</h7>
+    <div class="text">
+      <span>{{i.U_msg}}</span>
+    </div>
+
+  </div>
+
+  {% endfor %}
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{%endblock%}

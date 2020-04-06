@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{%block style%}
+
+<style>
+    .containers label{
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .containers input{
+        padding: 20px;
+        border: 2px solid black;
+        background:rgb(105, 105, 105) ;
+        margin: 20px;
+    }
+
+    .containers{
+        margin-bottom: 20px;
+    }
+
+    .containers input:hover{
+        border: 2px solid rebeccapurple;
+    }
+
+    #btnn{
+        width: 80px;
+        margin-left: 50px;
+    }
+</style>
+  {% endblock%}
+
+{% block body %}
+
+<div class="containers" style="background-color: antiquewhite;">
+
+    <h1>Report Broken Links Us</h1>
+    <form  action="report" method="post">
+      {% csrf_token %}
+
+<label for="">Your Name</label><input type="text" name="user-name"><br>
+<label for="">Your Email</label><input type="email" name="email"><br>
+<label for="">Movie Name</label><input type="text" name="movie-name"><br>
+<label for="">Your massage</label><input type="text" name="msg"><br>
+<input type="submit" name="" id="btnn" value="Send">
+  </form>
+
+</div>
+
+
+
+{% endblock %}
