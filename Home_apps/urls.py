@@ -6,6 +6,7 @@ urlpatterns =[
     path('',views.index,name='home page'),
     path('categories',views.categories,name='categories'),
     path('movie_info/<int:id>',views.movie_info,name='movie_info'),
+    path('find_movie',views.find_movie,name='find-movie'),
     path('lates/',views.lates,name='lates'),
     path('web', include('Web_Series_app.urls')),
     path('movie_info/sendfile/<int:ids>/<str:Q>/',views.sendfile,name='sendfile'),
