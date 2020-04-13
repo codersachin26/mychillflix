@@ -78,21 +78,21 @@ WSGI_APPLICATION = 'ChillFlix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chillflix1',
-        'USER':'root',
-        'PASSWORD':'',
-        'PORT':'3306',
-        'HOST':'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dd1k8i4dg7j2g0',
+        'USER':'zoaieohxskacco',
+        'PASSWORD':'4960e477a404f58cedcee738335180b11fcecb66cfe888e4a0574c8ca837b16d',
+        'PORT':'5432',
+        'HOST':'ec2-54-147-209-121.compute-1.amazonaws.com',
 
     },
     'web_series': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'webseries',
-        'USER':'root',
-        'PASSWORD':'',
-        'PORT':'3306',
-        'HOST':'localhost',
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'dd1k8i4dg7j2g0',
+        'USER':'zoaieohxskacco',
+        'PASSWORD':'4960e477a404f58cedcee738335180b11fcecb66cfe888e4a0574c8ca837b16d',
+        'PORT':'5432',
+        'HOST':'ec2-54-147-209-121.compute-1.amazonaws.com',
     }
 
 }
