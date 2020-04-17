@@ -25,7 +25,7 @@ SECRET_KEY = '7f=rrngc24nc+s+4oh$uy#mq)^pb&2bn@-98)4_0d=^wfswemr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mychillflix.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['mychillflix.herokuapp.com','localhost']
 
 
 # Application definition
