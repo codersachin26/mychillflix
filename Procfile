@@ -1,1 +1,1 @@
-web: gunicorn mychillflix.wsgi --log-file -
+web: gunicorn ChillFlix.wsgi --log-file -
