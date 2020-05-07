@@ -17,7 +17,7 @@ def movie_info(request,id):
     id_m = Movies.objects.filter(M_Categories=movie.M_Categories)
     screenshots = M_screenshots.objects.get(movie_info=id)
     usercmts = UserComments.objects.filter(movie_info=id).order_by('-cmt_date')[:4]
-    v = Movie_file.objects.get(id=1)
+    v = Movie_file.objects.get(id=id)
     p = v._480p
     m_qulaties = movies.M_quality
     Q = m_qulaties.split(' | ')
