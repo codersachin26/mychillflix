@@ -6,8 +6,8 @@ from django.http import HttpResponse ,FileResponse
 
 
 def index(request):
-#     movie_info = Movie_info.objects.all()[:4]
-    return render(request,'index.html')
+    movie_info = Movie_info.objects.all()[:4]
+    return render(request,'index.html',{'movie_info':movie_info})
 
 
 
