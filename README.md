@@ -1,2 +1,2 @@
 # Application Name:- Mychillflix
-# About:- Its a Movie Streeming and Download Platform
+# About:- Its a simple web application for Movie Streeming and Downloading 
