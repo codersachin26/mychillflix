@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-import django_heroku
+# import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,7 +24,17 @@ SECRET_KEY = '7f=rrngc24nc+s+4oh$uy#mq)^pb&2bn@-98)4_0d=^wfswemr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+  # path('categories',views.categories,name='categories'),
+    # path('movie_info/<int:id>',views.movie_info,name='movie_info'),
+    # path('find_movie',views.find_movie,name='find-movie'),
+    # path('lates/',views.lates,name='lates'),
+    # path('movie_info/sendfile/<int:ids>/<str:Q>/',views.sendfile,name='sendfile'),
+    # path('movie_info/usercmt',views.usercmt,name='usercmt'),
+    # path('about_us',views.about_us,name='about_us'),
+    # path('contact/',views.contact,name='contact'),
+    # path('report',views.report,name='report'),
+    # path('nextpage/<int:no>',views.nextpage,name='nextpage'),
+    # path('movie_info/movieplay/<int:id>',views.movieplay,name='movieplay'),
 ALLOWED_HOSTS = ['mychillflix.herokuapp.com','localhost']
 
 
@@ -32,7 +42,6 @@ ALLOWED_HOSTS = ['mychillflix.herokuapp.com','localhost']
 
 INSTALLED_APPS = [
     'Home_apps.apps.HomeAppConfig',
-    'Web_Series_app.apps.WebSeriesAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +88,7 @@ WSGI_APPLICATION = 'ChillFlix.wsgi.application'
 DATABASES = {
     'default': {
               'ENGINE': 'django.db.backends.sqlite3',
-              'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
+              'NAME': os.path.join(BASE_DIR,'mydb.sqlite3'),
     }
    
 
@@ -133,4 +142,4 @@ STATIC_ROOT =os.path.join(BASE_DIR,'assest')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

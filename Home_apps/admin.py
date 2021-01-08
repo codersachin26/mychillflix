@@ -1,16 +1,13 @@
 from django.contrib import admin
-from .models import Movie_info,Movies,M_screenshots,Movie_file,UserComments
+from .models import Movie_file,Movie,Screenshot,Report,UserComments,Category
 
 
 # Register your models here.
-admin.site.register(Movie_info)
-admin.site.register(Movies)
-
+admin.site.register(Movie)
 admin.site.register(Movie_file)
-
-admin.site.register(M_screenshots)
+admin.site.register(Screenshot)
 admin.site.register(UserComments)
-
+admin.site.register(Category)
 
 
 

@@ -24,8 +24,6 @@ urlpatterns = [
 
     path('',include('Home_apps.urls')),
 
-    path('web/',include('Web_Series_app.urls')),
-
 
 
 ]
