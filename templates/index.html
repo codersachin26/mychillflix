@@ -1,149 +1,117 @@
 <!DOCTYPE html>
 {% load static %}
 
-
 <html lang="en">
-<head>
-  {%block style%}
-  {% endblock%}
-
-  <link rel="stylesheet" href="{% static 'css\style.css'%}">
+  <head>
+ 
+    <link rel="stylesheet" href="{% static 'css\style.css'%}">
     <meta charset="UTF-8">
     <title>MyChillFlix</title>
-</head>
+ </head>
 
 <body>
   <header>
-  <div class="title">
-    <img src="{% static 'css\title3.png'%}" alt="website title">
-
-  </div>
-       <div class="head">
-      <span><a href="/">Home</a></span>
-      <span><a href="/lates">Latest</a></span>
-      <span><a href="/web">Web Series</a></span>
-
-      <div class="cat">
-        <form action="categories">
-
-        <select id="categories" name="categories">
-          <option selected>All Categories</option>
-         <option value="Action">Action</option>
-           <option value="Sci-fiction">Sci-fiction</option>
-             <option value="Comedy">Comedy</option>
-               <option value="Drama">Drama</option>
-        </select>
-        <input type="submit" value="GO">
-      </form></div>
-
-
-
-
-
-
-        <div class="search-btn">
-              <form action="{% url 'find-movie' %}">
-        <input type="text" name="search" value="" placeholder="Search here">
-          <button type="submit" name="button">Search</button>
-             </form>
-           </div>
-
+    <div class="title">
+     <img src="{% static 'css\title3.png'%}" alt="website title">
     </div>
+     
+        <ul class="topnav">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="right"><a href="#about">About</a></li>
+        </ul>
+
+         <div class="cat">
+           <form action="categories">
+             <select id="categories" name="categories">
+                <option selected>All Categories</option>
+                <option value="Action">Action</option>
+                <option value="Sci-fiction">Sci-fiction</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+             </select>
+            <input type="submit" value="GO">
+          </form>
+        </div>
+
+ 
+
+
   </header>
+
+  <div class="search-btn">
+    <form action="#">
+        <input type="text" name="search" value="" placeholder="Search here">
+       <button type="submit" name="button">Search</button>
+     </form>
+</div>
  
 
   <div class="container">
-    {% block body%}
-
-
-
-
-
-
-
-
-
-{% block movie-box %}
-
-
-<ul class="ul">
-
-
-  {% for i in movie_info %}
+  
+    
+      <ul class="ul">
+       {% for movie in movies %}
         <li class="li">
-        	<a href="{% url 'movie_info' i.id %}">
+        	<a href="{% url 'movie_info' movie.id %}">
+           <div class="movie-box">
 
-
-
-     <div class="movie-box">
-
-         <img src="/media/{{i.M_img}}">
-       <span>{{i.M_name}}</span><br>
-       <span>{{i.M_released_date}}</span><br>
-        <span>{{i.M_languages}}</span><br>
-         <span>{{i.M_quality}}</span>
-
-     </div>
-     </a>
-      </li>
-
+            <img src="/media/{{movie.Poster}}">
+            <span>{{movie.Name}}</span><br>
+            <span>{{movie.Released_date}}</span><br>
+            <span>{{movie.Languages}}</span><br>
+          
+          </div>
+          </a>
+        </li>
       {% endfor %}
-
-   </ul>
-
-      {% endblock %}
+      </ul>
+   
 
    <br>
 
-
-
   </div>
 
-  <div class="next-page">
-    {%block next-page%}
-    <ul>
-      {% for i in count%}
-    <li>
-
-   <!-- <a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li> -->
-
-   {%ifequal i active %}
-   <a href="/nextpage/{{i}}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
-   {% else %}
-   <li><a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li>
+    <div class="next-page">
+ 
+         <ul>
+            {% for i in count%}
+              <li>
+                {%ifequal i active %}
+                <a href="/nextpage/{{i}}">
+                   <div style="background-color: aqua;" class="page-no">{{i}}
+                  </div>
+                </a>
+              </li>
+              {% else %}
+              <li>
+                <a href="/nextpage/{{i}}"> 
+                  <div class="page-no">
+                    {{i}}
+                  </div>
+                </a>
+              </li>
    
-   {% endifequal %}
+              {% endifequal %}
+              {%endfor%}
+       
 
-   {%endfor%}
-
-   {%endblock%}
-   <!-- <li><a href="/nextpage/3"> <div class="page-no">3</div></a></li>
-   <li><a href="/nextpage/4"> <div class="page-no">4</div></a></li>
-   <li><a href="/nextpage/5"> <div class="page-no">5</div></a> -->
-
-</ul>
-{%endblock%}
- </div>
+          </ul>
+     
+     </div>
 
 
 
 
   
-<footer>
-<div class="footer">
-   <span>Copyright &copy 2020</span><br>
-  <a href="/about_us">About</a><br>
-  <a href="/contact">Contact</a><br>
-  <a href="/report">Report</a><br>
-
-</div>
-</footer>
-
-
-
-
-
+  <footer>
+    <div class="footer">
+      <span>Copyright &copy 2020</span><br>
+      <a href="/about_us">About</a><br>
+      <a href="/contact">Contact</a><br>
+    </div>
+  </footer>
 
 </body>
-
 </html>

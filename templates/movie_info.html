@@ -1,0 +1,60 @@
+{% extends 'home.html' %}
+
+{%block container%}
+
+<div style="width: 100%; height: fit-content; margin-top: 10px; background: rgb(36, 35, 35);">
+
+    <div style="float: left; width: 80%; height: fit-content; background: rgb(22, 20, 20); margin-left: 10%;">
+
+        <div>
+            <img src="/media/{{movie.Poster}}" alt="movie-poster" style="width: 80%; height:400px; margin-left: 9%; margin-top: 5px;">
+        </div>
+
+        <div style="margin-left: 9%;">
+         <h1>{{movie.Name}}</h1> <hr>
+         <h4>Makers:- <span>{{movie.Makers}}</span></h4>
+         <h4>Languages:- <span>{{movie.Languages}}</span></h4>
+         <h4>Categories:- <span>{{categories}}</span></h4>
+         <h4>Story:- <span>{{movie.Story}}</span></h4>
+        
+        </div>
+
+        <div style="margin-left: 9%; margin-top: 10px">
+
+            <div class="dropdown" style="background-color: rgb(134, 240, 124); margin-bottom: 10px;">
+                <button class="dropbtn">Watch
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">480p</a>
+                  <a href="#">720p</a>
+                </div>
+              </div>
+                 
+              <div class="dropdown" style="background-color: rgb(134, 240, 124); margin-left: 10px; margin-bottom: 10px;">
+                <button class="dropbtn">Download
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">480p</a>
+                    <a href="#">720p</a>
+                </div>
+              </div>
+        </div>
+
+    </div>
+    <h1 style="margin-left:10% ;">Screenshots</h1>
+    <div style="float: left; width: 80%; height: fit-content; background: rgb(22, 20, 20); margin-left: 10%; margin-top: 10px;">
+        <div>
+            {% for screenshot in screenshots%}
+           <img src="/media/{{screenshot.File}}" alt="movie-poster" style="width: 80%; height:400px; margin-left: 9%; margin-bottom: 20px; margin-top: 10px;">
+            {% endfor %}
+       </div>
+   </div>
+
+</div>
+
+
+
+
+{% endblock %}

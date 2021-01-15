@@ -10,8 +10,10 @@ class Movie(models.Model):
     Story         = models.CharField(max_length=500)
     Time_lenght   = models.DurationField()
     Makers        = models.CharField(max_length=50)
-    released_date = models.DateField()
+    Released_date = models.DateField()
+    Languages     = models.CharField(max_length=50)
     Poster        = models.ImageField(upload_to='movie_poster/')
+    # Big_Poster    = models.ImageField(upload_to='movie_poster/')
 
     def __str__(self):
         return self.Name
@@ -40,7 +42,7 @@ class Screenshot(models.Model):
     File = models.ImageField(upload_to='movie_screenshot/')
 
     def __str__(self):
-        return self.Movie.Name+'_'+self.File
+        return self.Movie.Name+'_'+self.File.name
     
 
 
@@ -119,11 +121,11 @@ class UserComments(models.Model):
 #         return self.user_name
 
 
-class Report(models.Model):
-    UserName = models.CharField(max_length=25)
-    Email = models.EmailField()
-    Movie_name = models.CharField(max_length=50)
-    Massage = models.CharField(max_length=300)
+# class Report(models.Model):
+#     UserName = models.CharField(max_length=25)
+#     Email = models.EmailField()
+#     Movie_name = models.CharField(max_length=50)
+#     Massage = models.CharField(max_length=300)
 
-    def __str__(self):
-        return self.UserName+'_'+self.Movie_name
+#     def __str__(self):
+#         return self.UserName+'_'+self.Movie_name

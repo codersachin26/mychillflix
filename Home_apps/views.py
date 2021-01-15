@@ -1,12 +1,29 @@
 from django.shortcuts import render,redirect
-from .models import Movie,Screenshot
+from .models import Movie,Screenshot,Category
 from django.http import HttpResponse ,FileResponse
 
 
 
 
 def index(request):
-    return render(request,'index.html')
+    movies = Movie.objects.all()[:10]
+    count = None
+    return render(request,'home.html',{'movies':movies,'count':count})
+
+
+def movie_info(request,id):
+    movie      = Movie.objects.get(id=id)
+    movie_categories = Category.objects.filter(Movie_id=id)
+    screenshots   = Screenshot.objects.filter(Movie_id=id)
+    category = ''
+    for i,cat in enumerate(movie_categories):
+        if i==0:
+            category = cat.Name
+        else:
+            category = category + '|' + cat.Name
+    print("hello" ,category)
+
+    return render(request,'movie_info.html',{'movie':movie,'categories':category,'screenshots':screenshots})
     
 
 

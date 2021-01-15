@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie_file,Movie,Screenshot,Report,UserComments,Category
+from .models import Movie_file,Movie,Screenshot,UserComments,Category
 
 
 # Register your models here.
