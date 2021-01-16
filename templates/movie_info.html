@@ -7,7 +7,7 @@
     <div style="float: left; width: 80%; height: fit-content; background: rgb(22, 20, 20); margin-left: 10%;">
 
         <div>
-            <img src="/media/{{movie.Poster}}" alt="movie-poster" style="width: 80%; height:400px; margin-left: 9%; margin-top: 5px;">
+            <img src="/media/{{movie.Big_Poster}}" alt="movie-poster" style="width: 80%; height:400px; margin-left: 9%; margin-top: 5px;">
         </div>
 
         <div style="margin-left: 9%;">
@@ -21,24 +21,26 @@
 
         <div style="margin-left: 9%; margin-top: 10px">
 
-            <div class="dropdown" style="background-color: rgb(134, 240, 124); margin-bottom: 10px;">
-                <button class="dropbtn">Watch
+            <div class="dropdown" style="background-color:  rgb(94, 145, 37); margin-bottom: 10px;">
+                <button class="dropbtn"><i class="fa fa-eye"></i> Watch Now
                   <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
-                  <a href="#">480p</a>
-                  <a href="#">720p</a>
+                {% for quality in qualities %}
+                <div class="dropdown-content"> 
+                  <a href="/play_movie/{{movie.id}}/{{quality.Quality_type}}">{{quality.Quality_type}}</a>  
                 </div>
+                {% endfor %}
               </div>
                  
-              <div class="dropdown" style="background-color: rgb(134, 240, 124); margin-left: 10px; margin-bottom: 10px;">
-                <button class="dropbtn">Download
+              <div class="dropdown" style="background-color: rgb(94, 145, 37); margin-left: 10px; margin-bottom: 10px;">
+                <button class="dropbtn"><i class="fa fa-download"></i> Download
                   <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
-                    <a href="#">480p</a>
-                    <a href="#">720p</a>
+                {% for quality in qualities %}
+                <div class="dropdown-content"> 
+                  <a href="/download_movie/{{movie.id}}/{{quality.Quality_type}}">{{quality.Quality_type}}</a>  
                 </div>
+                {% endfor %}
               </div>
         </div>
 

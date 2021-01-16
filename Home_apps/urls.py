@@ -1,22 +1,14 @@
 from django.conf.urls import url
-from django.urls import path,include
+from django.urls import path
 from . import views
 urlpatterns =[
   
     path('',views.index,name='home page'),
     path('movie_info/<int:id>',views.movie_info,name='movie_info'),
-    # path('find_movie',views.find_movie,name='find-movie'),
-    # path('lates/',views.lates,name='lates'),
-    # path('movie_info/sendfile/<int:ids>/<str:Q>/',views.sendfile,name='sendfile'),
-    # path('movie_info/usercmt',views.usercmt,name='usercmt'),
-    # path('about_us',views.about_us,name='about_us'),
-    # path('contact/',views.contact,name='contact'),
-    # path('report',views.report,name='report'),
-    # path('nextpage/<int:no>',views.nextpage,name='nextpage'),
-    # path('movie_info/movieplay/<int:id>',views.movieplay,name='movieplay'),
-
-
-
-
+    path('play_movie/<int:id>/<str:quality_type>',views.play_movie,name='play_movie'),
+    path('download_movie/<int:id>/<str:quality_type>',views.download_movie,name='download_movie'),
+    path('category_by/<str:category_name>',views.category_by,name='category_by'),
+    path('latest_movies',views.latest_movies,name='latest_movies'),
+  
 
 ]

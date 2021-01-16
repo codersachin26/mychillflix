@@ -161,17 +161,19 @@ h4{
 <body>
 
 <div class="navbar">
-  <a href="/" style="background-color: rgb(158, 189, 189); color: rgb(44, 43, 43);">MyChillFlix</a>
+  <a href="/" style="background-color: rgb(158, 189, 189); color: rgb(44, 43, 43);"> <i class="fa fa-video-camera"></i> MyChillFlix</a>
   <div class="dropdown">
     <button class="dropbtn">All Categories
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Sci-Fiction</a>
-      <a href="#">Action</a>
-      <a href="#">Horror</a>
+      <a href="/category_by/Sci-Fiction">Sci-Fiction</a>
+      <a href="/category_by/Action">Action</a>
+      <a href="/category_by/Horror">Horror</a>
+      <a href="/category_by/Hacking">Hacking</a>
     </div>
   </div> 
+  <a href="/latest_movies" style=" color: rgb(247, 239, 239);">Latest</a>
 </div>
 
 <div style="width: 100%; height:fit-content; background: rgb(58, 57, 57);">
@@ -191,8 +193,7 @@ h4{
             <div style="text-align: center; height: 330px;">
  
              <img src="/media/{{movie.Poster}}" style="width: 100%; height: 80%;"><br>
-             <span>{{movie.Name}}</span> <br>
-             <span>{{movie.Released_date}}</span> <br>
+             <span>{{movie.Name}}-({{movie.Released_date.year}})</span> <br>
              <span>{{movie.Languages}}</span>
            
            </div>
@@ -204,8 +205,8 @@ h4{
        {% endblock %}
 </div>
 
-
-<footer style="float: left; margin: 30px;"> <span>Copyright &copy 2021 MyChillFlix</span><br></footer>
-
+  <div style="height: 40px; float: left; margin: 30px;">
+   <footer> <span>Copyright &copy 2021 MyChillFlix</span><br></footer>
+  </div>
 </body>
 </html>
