@@ -2,4 +2,4 @@ ChillFlix/__pycache__
 Home/__pycache__
 Home/migrations
 media
-mydb.sqlite3
+/mydb.sqlite3

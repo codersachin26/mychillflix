@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from .models import Movie,Screenshot,Category,Movie_file
 from django.http import HttpResponse
 from datetime import datetime

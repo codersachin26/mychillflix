@@ -1,6 +1,4 @@
 from django.db import models
-# import os
-# import datetime
 
 # Create your models here.
 
@@ -43,4 +41,3 @@ class Screenshot(models.Model):
 
     def __str__(self):
         return self.Movie.Name+'_'+self.File.name
-    
